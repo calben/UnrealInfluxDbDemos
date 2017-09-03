@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "InfluxDbTools",
+	"Description": "A set of classes to ",
+	"Category": "Other",
+	"CreatedBy": "Calem Bendell",
+	"CreatedByURL": "https://http://calben.xyz",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "InfluxDbTools",
+			"Type": "Developer",
+			"LoadingPhase": "Default"
+		}
+	]
+}
