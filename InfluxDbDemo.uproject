@@ -3,11 +3,16 @@
 	"EngineAssociation": "4.17",
 	"Category": "",
 	"Description": "",
-	"Modules": [
-		{
-			"Name": "InfluxDbDemo",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		}
-	]
+  "Modules": [
+    {
+      "Name": "InfluxDbDemo",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "InfluxDbTools",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
 }

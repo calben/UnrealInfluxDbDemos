@@ -4,6 +4,6 @@
 	"BuildId" : "a85275cd-d363-4594-bbcc-177600e839e0",
 	"Modules" : 
 	{
-		"InfluxDbTools" : "UE4Editor-InfluxDbTools.dll"
+		"InfluxDbTools" : "UE4Editor-InfluxDbTools-8357.dll"
 	}
 }

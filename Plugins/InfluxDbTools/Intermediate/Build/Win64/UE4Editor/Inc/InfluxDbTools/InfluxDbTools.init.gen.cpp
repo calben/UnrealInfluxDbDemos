@@ -18,7 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeInfluxDbTools_init() {}
 		if (!ReturnPackage)
 		{
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/InfluxDbTools")), false, false));
-			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000080);
+			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
 			Guid.A = 0xEE4059F0;
 			Guid.B = 0x778A10CE;

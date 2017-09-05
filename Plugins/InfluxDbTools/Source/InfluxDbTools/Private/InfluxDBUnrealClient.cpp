@@ -1,6 +1,8 @@
 #include "InfluxDBUnrealClient.h"
 #include "Runtime/Online/HTTP/Public/Http.h"
+#include <chrono>
 
+using namespace std::chrono;
 
 UInfluxDBUnrealClient::UInfluxDBUnrealClient(const FObjectInitializer& ObjectInitializer) :Super(ObjectInitializer)
 {
@@ -84,14 +86,13 @@ FString UInfluxDBUnrealClient::ConvertTransformToLineProtocol(FTransform transfo
 	if (strlen(rotation_buffer) > 0)
 	{
 		values.Add(FString(ANSI_TO_TCHAR(rotation_buffer)));
-	}	
+	}
 	if (strlen(scale3d_buffer) > 0)
 	{
 		values.Add(FString(ANSI_TO_TCHAR(scale3d_buffer)));
 	}
-
-	FString fs = label + TEXT(" ") + FString::Join(values, TEXT(","));
-
+	nanoseconds now = duration_cast <nanoseconds>(system_clock::now().time_since_epoch());
+	FString fs = label + TEXT(" ") + FString::Join(values, TEXT(",")) + TEXT(" ") + FString::Printf(TEXT("%llu"), now.count());
 	return fs;
 }
 
@@ -124,7 +125,7 @@ void UInfluxDBUnrealClient::PostLineProtocolToInfluxDBServer(FString lines)
 
 void UInfluxDBUnrealClient::OnResponseReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful)
 {
-	if (bWasSuccessful && Response->GetContentType() == "application/json")
+	if (bWasSuccessful)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("SUCCESS! RESPONSE IS %s"), *Response->GetContentAsString());
 	}
